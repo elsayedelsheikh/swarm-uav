@@ -3,7 +3,12 @@ repositories:
     type: git
     url: https://github.com/ZJU-FAST-Lab/EGO-Planner-v2.git
     version: main
-  ORB_SLAM2:
+  ORB_SLAM2_NOETIC:
     type: git
-    url: https://github.com/raulmur/ORB_SLAM2.git
-    version: master
+    url: https://github.com/RAFALAMAO/ORB_SLAM2_NOETIC/tree/main
+    version: main
+  # ORB_SLAM2:
+  #   type: git
+  #   url: https://github.com/raulmur/ORB_SLAM2.git
+  #   version: master
+  #   recursive: true
