@@ -1,7 +1,23 @@
 ARG ROS_DISTRO=noetic
-FROM althack/ros:$ROS_DISTRO-full
+FROM althack/ros:$ROS_DISTRO-gazebo-nvidia
 
 ENV DEBIAN_FRONTEND=noninteractive
+#################################################################################################
+### Install WSLg dependencies and vGPU acceleration
+# RUN apt-get update && apt install -y software-properties-common
+# RUN add-apt-repository ppa:oibaf/graphics-drivers -y
+RUN apt-get update \
+   && apt-get -y install \
+          vainfo \
+          mesa-va-drivers \
+          mesa-utils \
+   # Clean up
+        && apt-get autoremove -y \
+        && apt-get clean -y \
+        && rm -rf /var/lib/apt/lists/*
+ENV LIBVA_DRIVER_NAME=d3d12
+ENV LD_LIBRARY_PATH=/usr/lib/wsl/lib
+CMD vainfo --display drm --device /dev/dri/card0
 #################################################################################################
 ### Install OpenCV
 ARG OPENCV_VERSION="3.4.16" 
