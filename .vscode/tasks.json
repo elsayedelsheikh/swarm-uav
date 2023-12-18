@@ -3,31 +3,69 @@
         // for the documentation about the tasks.json format
         "version": "2.0.0",
         "tasks": [
-            // Build tasks
-        //     {
-        //         "label": "build",
-        //         "detail": "Build workspace (default)",
-        //         "type": "shell",
-        //         "command": "./build.sh",
-        //         "group": {
-        //             "kind": "build",
-        //             "isDefault": true
-        //         },
-        //         "problemMatcher": "$gcc"
-        //     },
-        //     {
-        //         "label": "debug",
-        //         "detail": "Build workspace (debug)",
-        //         "type": "shell",
-        //         "command": "./build.sh",
-        //         "options": {
-        //             "env": {
-        //                 "BUILD_TYPE": "Debug"
-        //             }
-        //         },
-        //         "group": "build",
-        //         "problemMatcher": "$gcc"
-        //     },
+            // Run
+            {
+                "label": "Start SITL",
+                "detail": "Start Simulation in The Loop software.",
+                "type": "shell",
+                "command": "ThirdParty/ardupilot/Tools/autotest/sim_vehicle.py -v ArduCopter --console",
+                "problemMatcher": []
+            },
+            {
+                "label": "Launch sim Gazebo, SITL, and GGC",
+                "dependsOn": ["SITL for Gazebo", "Gazebo simulation", "QGC"],
+            },
+            {
+                "label": "SITL for Gazebo",
+                "detail": "Start SITL for gazebo sim.",
+                "type": "shell",
+                "command": "ThirdParty/ardupilot/Tools/autotest/sim_vehicle.py -v ArduCopter -f gazebo-iris --console",
+                "problemMatcher": []
+            },
+            {
+                "label": "Gazebo simulation",
+                "detail": "Start gazebo simulation with iris arudcopter runway world.",
+                "type": "shell",
+                "options": {
+                    "env": {
+                        "GAZEBO_MODEL_PATH": "ThirdParty/ardupilot_gazebo/models"
+                    }
+                },
+                "command": "gazebo --verbose ThirdParty/ardupilot_gazebo/worlds/iris_arducopter_runway.world",
+                "problemMatcher": [],
+            },
+            {
+                "label": "QGC",
+                "detail": "Start QGroundControl.",
+                "type": "shell",
+                "command": "./ThirdParty/QGroundControl.AppImage",
+                "problemMatcher": []
+            },
+            // Build tasks            
+            {
+                "label": "build",
+                "detail": "Build workspace (default)",
+                "type": "shell",
+                "command": "./build.sh",
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "problemMatcher": "$gcc"
+            },
+            {
+                "label": "debug",
+                "detail": "Build workspace (debug)",
+                "type": "shell",
+                "command": "./build.sh",
+                "options": {
+                    "env": {
+                        "BUILD_TYPE": "Debug"
+                    }
+                },
+                "group": "build",
+                "problemMatcher": "$gcc"
+            },
             // Test tasks
         //     {
         //         "label": "test",
@@ -205,7 +243,7 @@
                 "label": "import from workspace file",
                 "detail": "Use vcs to import modules specified by a workspace/rosinstall file.",
                 "type": "shell",
-                "command": "vcs import < src/ros2.repos src",
+                "command": "vcs import < ThirdParty/repos ThirdParty",
                 "problemMatcher": []
             },
             {

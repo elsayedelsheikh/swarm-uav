@@ -23,7 +23,10 @@
 		"--device=/dev/dxg",
 		"--device=/dev/dri/card0",
 		"--device=/dev/dri/renderD128",
-		"--gpus=all"
+		"--gpus=all",
+		// AppImages
+		"--cap-add=SYS_ADMIN",
+		"--device=/dev/fuse"
 	],
 	"containerEnv": {
 		"DISPLAY": ":0", // for windows else "${localEnv:DISPLAY}"
