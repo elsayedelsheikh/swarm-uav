@@ -4,21 +4,21 @@
         "version": "2.0.0",
         "tasks": [
             {
-                "label": "SITL Only",
-                "detail": "Start Simulation In The Loop software.",
-                "type": "shell",
-                "command": "ThirdParty/ardupilot/Tools/autotest/sim_vehicle.py -v ArduCopter --console",
-                "problemMatcher": []
-            },
-            {
                 "label": "sim: Start Simulation - 1#UAV",
                 "detail": "Start Simulation in Gazebo and Launch SITL and QGC for 1 UAV.",
                 "dependsOn": [
                     "SITL for Gazebo",
-                    "gazebo with ros",
-                    // "Gazebo runway world with 1-UAV",
+                    "gazebo_ros runway_world",
+                    "mavros launch",
                     "QGC"
                 ],
+                "problemMatcher": []
+            },
+            {
+                "label": "SITL Only",
+                "detail": "Start Simulation In The Loop software.",
+                "type": "shell",
+                "command": "ThirdParty/ardupilot/Tools/autotest/sim_vehicle.py -v ArduCopter --console",
                 "problemMatcher": []
             },
             {
@@ -29,7 +29,7 @@
                 "problemMatcher": []
             },
             {
-                "label": "Gazebo runway world with 1-UAV",
+                "label": "Gazebo runway world without ROS",
                 "detail": "Start gazebo simulation with iris arudcopter runway world.",
                 "type": "shell",
                 "options": {
@@ -122,7 +122,7 @@
                 "problemMatcher": [
                     "$roslaunch"
                 ],
-                "label": "gazebo with ros",
+                "label": "gazebo_ros runway_world",
             },
             {
                 "type": "ros",
@@ -149,13 +149,13 @@
                 "type": "ros",
                 "command": "roslaunch",
                 "args": [
-                    "package_name",
-                    "launch_file.launch"
+                    "ego_planner_gz",
+                    "apm.launch"
                 ],
                 "problemMatcher": [
                     "$roslaunch"
                 ],
-                "label": "roslaunch: roslaunch"
+                "label": "mavros launch"
             }
         ],
         "inputs": [
