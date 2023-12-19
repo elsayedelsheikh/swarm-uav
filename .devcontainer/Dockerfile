@@ -142,10 +142,10 @@ RUN wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/
     && chmod a+x install_geographiclib_datasets.sh \
     && ./install_geographiclib_datasets.sh
 
-## QGround Control
+## QGround Control and afew other tools
 RUN apt-get update \
    && apt-get -y install --no-install-recommends \
-        fuse libfuse2 python3-vcstool \
+        fuse libfuse2 python3-vcstool python3-wxgtk4.0 python3-lxml python3-pygame \
    # Clean up
         && apt-get autoremove -y \
         && apt-get clean -y \

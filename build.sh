@@ -1,17 +1,14 @@
 #!/bin/bash
 set -e
-
-cd ThirdParty
-tp_ws_dir=$(pwd)
+ws_dir=$(pwd)
 
 ## Build Thirdparty Dependencies
 # Install ArduPilot
-cd $tp_ws_dir/ardupilot
+cd $ws_dir/ThirdParty/ardupilot
 git submodule update --init --recursive
 
 # Install Arduopilot Gazebo Plugin
-cd $tp_ws_dir/ardupilot_gazebo
-# Check if build directory exists
+cd $ws_dir/ThirdParty/ardupilot_gazebo
 if [[ -d "build" ]]; then
     echo "Build directory exists. Proceeding with the build process."
 else
@@ -23,7 +20,8 @@ cmake ..
 make 
 sudo make install
 
-
-# Set the default build type
-# BUILD_TYPE=RelWithDebInfo
-# catkin build
+## Build the ROS Workspace
+cd $ws_dir
+catkin_make
+echo "source $ws_dir/devel/setup.bash" >> ~/.bashrc
+echo "export GAZEBO_MODEL_PATH=$ws_dir/ThirdParty/ardupilot_gazebo/models" >> ~/.bashrc
