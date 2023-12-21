@@ -18,7 +18,7 @@
 		// https://github.com/microsoft/wslg/blob/main/samples/container/Containers.md
 		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
 		"--volume=/mnt/wslg:/mnt/wslg",
-		// vGPU support
+		// Windows vGPU support
 		"--volume=/usr/lib/wsl:/usr/lib/wsl",
 		"--device=/dev/dxg",
 		"--device=/dev/dri/card0",
