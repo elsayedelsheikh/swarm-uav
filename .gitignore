@@ -4,7 +4,8 @@ install/
 log/
 logs/
 ThirdParty/
+terrain/
 mav.parm
+eeprom.bin
 mav.tlog
 mav.tlog.raw
-eeprom.bin

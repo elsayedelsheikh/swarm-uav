@@ -3,6 +3,7 @@
         // for the documentation about the tasks.json format
         "version": "2.0.0",
         "tasks": [
+            // SIM
             {
                 "label": "sim: Start Simulation - 1#UAV",
                 "detail": "Start Simulation in Gazebo and Launch SITL and QGC for 1 UAV.",
@@ -65,7 +66,7 @@
                 "label": "import from workspace file",
                 "detail": "Use vcs to import modules specified by a workspace/rosinstall file.",
                 "type": "shell",
-                "command": "vcs import < ThirdParty/repos ThirdParty",
+                "command": "vcs import < ThirdParty/thirdparty.repos ThirdParty",
                 "problemMatcher": []
             },
             {
@@ -106,6 +107,24 @@
                 ],
                 "label": "rviz: visualize ego_planner",
                 "detail": "Start rviz to visualize ego_planner"
+            },
+            {
+                "type": "ros",
+                "command": "roslaunch",
+                "args": [
+                    "iris_description",
+                    "view_robot.launch"
+                ],
+                "options": {
+                    "env": {
+                        "LIBGL_ALWAYS_SOFTWARE": "1"
+                    }
+                },
+                "problemMatcher": [
+                    "$roslaunch"
+                ],
+                "label": "v: view iris robot description",
+                "detail": "Start rviz to visualize iris robot description"
             },
             {
                 "type": "ros",

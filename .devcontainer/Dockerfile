@@ -145,7 +145,7 @@ RUN wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/
 ## QGround Control and afew other tools
 RUN apt-get update \
    && apt-get -y install --no-install-recommends \
-        fuse libfuse2 python3-vcstool python3-wxgtk4.0 python3-lxml python3-pygame \
+        fuse libfuse2 python3-vcstool python3-wxgtk4.0 python3-lxml python3-pygame liburdfdom-tools\
    # Clean up
         && apt-get autoremove -y \
         && apt-get clean -y \
