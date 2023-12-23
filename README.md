@@ -7,6 +7,24 @@ Avoid errors during compilation:
 - Use the latest OpenCV 3 not 3.2.0
 - Use Pangolin stable v5.0 instead of master branch (user for development)
 
+
+## Setup
+
+#### Ardupilot parameter:
+1. This parameter setup is done using bash script (`setup_ardupilot.sh`)
+- /workspaces/swarm-uav/ThirdParty/ardupilot/Tools/autotest/pysim/vehicleinfo.py 
+- /workspaces/swarm-uav/ThirdParty/ardupilot/Tools/autotest/default_params
+2. You need to configure QGC
+- Application Settings -> 
+- Comm Links -> 
+- Server Address: 0.0.0.0
+- TCP port to 8100 for 1st drone and 8200 for 2nd drone and so on.
+
+## Drone Description
+Links:
+- https://github.com/ethz-asl/rotors_simulator/tree/master 
+- https://github.com/ethz-asl/rotors_simulator/wiki
+
 ## EGO-Planner
 ### Videos
 1- main_ws/  

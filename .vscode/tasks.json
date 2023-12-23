@@ -3,14 +3,63 @@
         // for the documentation about the tasks.json format
         "version": "2.0.0",
         "tasks": [
-            // SIM
+            // SIM of 4 UAVs
             {
-                "label": "sim: Start Simulation - 1#UAV",
+                "label": "sim: start simulation of 4# UAV",
+                "detail": "Start Simulation in Gazebo and Launch SITL and QGC for 4 UAV.",
+                "dependsOn": [
+                    // "gazebo_ros runway_world",
+                    "SITL UAV#0",
+                    "SITL UAV#1",
+                    "SITL UAV#2",
+                    "SITL UAV#3",
+                    "mavros launch",
+                    "QGC"
+                ],
+                "problemMatcher": []
+            },
+            {
+                "label": "SITL UAV#0",
+                "type": "shell",
+                "command": "ThirdParty/ardupilot/Tools/autotest/sim_vehicle.py -v ArduCopter --console -I0 --out=tcpin:0.0.0.0:8100",
+                "problemMatcher": []
+            },
+            {
+                "label": "SITL UAV#1",
+                "type": "shell",
+                "command": "ThirdParty/ardupilot/Tools/autotest/sim_vehicle.py -v ArduCopter --console -I1 --out=tcpin:0.0.0.0:8200",
+                "problemMatcher": []
+            },
+            {
+                "label": "SITL UAV#2",
+                "type": "shell",
+                "command": "ThirdParty/ardupilot/Tools/autotest/sim_vehicle.py -v ArduCopter --console -I2 --out=tcpin:0.0.0.0:8300",
+                "problemMatcher": []
+            },
+            {
+                "label": "SITL UAV#3",
+                "type": "shell",
+                "command": "ThirdParty/ardupilot/Tools/autotest/sim_vehicle.py -v ArduCopter --console -I3 --out=tcpin:0.0.0.0:8400",
+                "problemMatcher": []
+            },
+            // Demo
+            {
+                "label": "sim: Iris demo",
                 "detail": "Start Simulation in Gazebo and Launch SITL and QGC for 1 UAV.",
                 "dependsOn": [
-                    "SITL for Gazebo",
                     "gazebo_ros runway_world",
+                    "SITL for Gazebo",
                     "mavros launch",
+                    "QGC"
+                ],
+                "problemMatcher": []
+            },
+            {
+                "label": "smq: SITL, MAVROS, QGC",
+                "detail": "Start your own gazebo sim then launch SITL, MAVROS and QGC.",
+                "dependsOn": [
+                    "SITL for Gazebo",
+                    // "mavros launch",
                     "QGC"
                 ],
                 "problemMatcher": []
@@ -126,12 +175,13 @@
                 "label": "v: view iris robot description",
                 "detail": "Start rviz to visualize iris robot description"
             },
+            // Gazebo Worlds
             {
                 "type": "ros",
                 "command": "roslaunch",
                 "args": [
-                    "ego_planner_gz",
-                    "runway.launch"
+                    "iris_gazebo",
+                    "sim.launch"
                 ],
                 "options": {
                     "env": {

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<robot name="iris" xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- Load iris mechaincs -->
+  <xacro:include filename="$(find iris_description)/urdf/iris_core.xacro" />
+  <!-- Load iris sensor plugins -->
+  <xacro:include filename="$(find iris_description)/gazebo/sensors.gazebo.xacro" />
+
+  <!-- Load ArduPilot plugin -->
+  <xacro:include filename="$(find iris_description)/gazebo/robot.gazebo.xacro" />
+  <xacro:ardupilot_macro fdm_port="$(arg ardupilot_port)" />
+
+</robot>
+

@@ -1,0 +1,39 @@
+<launch>
+  <arg name="world_name" default="runway"/>
+  <arg name="enable_logging" default="false" />
+
+  <env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find iris_gazebo)/models"/>
+  <env name="GAZEBO_RESOURCE_PATH" value="${GAZEBO_RESOURCE_PATH}:$(find iris_gazebo)/models"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find iris_gazebo)/worlds/$(arg world_name).world" />
+    <arg name="paused" value="false"/>
+  </include>
+
+  <!-- Spawn UAVs -->
+  <include file="$(find iris_gazebo)/launch/spawn_uav_call.launch">
+    <!-- Namespace -->
+    <arg name="ns" value="0"/> 
+    <arg name="ardupilot_port" value="9002"/>
+    <arg name="enable_logging" value="$(arg enable_logging)" />
+  </include>
+  <include file="$(find iris_gazebo)/launch/spawn_uav_call.launch">
+    <arg name="ns" value="1"/>
+    <arg name="ardupilot_port" value="9012"/>
+    <arg name="x" value="1.0"/>
+    <arg name="enable_logging" value="$(arg enable_logging)" />
+  </include>
+  <include file="$(find iris_gazebo)/launch/spawn_uav_call.launch">
+    <arg name="ns" value="2"/>
+    <arg name="ardupilot_port" value="9022"/>
+    <arg name="y" value="1.0"/>
+    <arg name="enable_logging" value="$(arg enable_logging)" />
+  </include>
+  <include file="$(find iris_gazebo)/launch/spawn_uav_call.launch">
+    <arg name="ns" value="3"/>
+    <arg name="ardupilot_port" value="9032"/>
+    <arg name="x" value="1.0"/>
+    <arg name="y" value="1.0"/>
+    <arg name="enable_logging" value="$(arg enable_logging)" />
+  </include>
+
+</launch>

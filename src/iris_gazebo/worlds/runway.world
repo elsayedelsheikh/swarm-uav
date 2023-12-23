@@ -1,6 +1,11 @@
-<?xml version="1.0"?> 
-<sdf version="1.5">
+<?xml version="1.0" ?>
+<sdf version="1.6">
   <world name="default">
+    <gui>
+      <camera name="user_camera">
+        <pose>-5 0 1 0 0.2 0</pose>
+      </camera>
+    </gui>
     <physics type="ode">
       <ode>
         <solver>
@@ -10,25 +15,18 @@
         </solver>
         <constraints>
           <cfm>0.0</cfm>
-          <erp>0.9</erp>
+          <erp>0.2</erp>
           <contact_max_correcting_vel>0.1</contact_max_correcting_vel>
           <contact_surface_layer>0.0</contact_surface_layer>
         </constraints>
       </ode>
-      <real_time_update_rate>1000</real_time_update_rate>
-      <max_step_size>0.0010</max_step_size>
+      <real_time_update_rate>-1</real_time_update_rate>
+      <!--<max_step_size>0.0020</max_step_size>-->
     </physics>
-
-    <scene>
-      <sky>
-        <clouds>
-          <speed>12</speed>
-        </clouds>
-      </sky>
-      <ambient>0.4 0.4 0.4 1</ambient>
-      <background>0.25 0.25 0.25 1</background>
-    </scene>
-
+    <gravity>0 0 -9.8</gravity>
+    <include>
+      <uri>model://sun</uri>
+    </include>
 
     <model name="ground_plane">
       <static>true</static>
@@ -43,8 +41,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>1</mu>
-                <mu2>1</mu2>
+                <mu>100</mu>
+                <mu2>50</mu2>
               </ode>
             </friction>
           </surface>
@@ -86,16 +84,5 @@
       </link>
     </model>
 
-    <include>
-      <uri>model://sun</uri>
-    </include>
-
-    <model name="iris">
-      <include>
-        <uri>model://drone_with_camera</uri>
-      </include>
-      <pose> 0 0 0 0 0 0</pose>
-    </model>
   </world>
 </sdf>
-
