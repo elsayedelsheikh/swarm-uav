@@ -21,7 +21,7 @@
 		// https://github.com/microsoft/wslg/blob/main/samples/container/Containers.md
 		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
 		"--volume=/mnt/wslg:/mnt/wslg",
-		"--runtime=nvidia",
+		// "--runtime=nvidia", // For Linux Nvidia Accelerated Graphics
 		// Windows vGPU support
 		// For Windows, uncomment the following lines
 		"--volume=/usr/lib/wsl:/usr/lib/wsl",
