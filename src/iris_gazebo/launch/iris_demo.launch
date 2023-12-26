@@ -1,0 +1,11 @@
+<launch>
+  <arg name="world_name" default="iris_demo"/>
+
+  <env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find iris_gazebo)/models"/>
+  <env name="GAZEBO_RESOURCE_PATH" value="${GAZEBO_RESOURCE_PATH}:$(find iris_gazebo)/models"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find iris_gazebo)/worlds/$(arg world_name).world" />
+    <arg name="paused" value="false"/>
+  </include>
+
+</launch>

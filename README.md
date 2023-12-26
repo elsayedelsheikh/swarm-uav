@@ -35,3 +35,7 @@ Links:
 - EGO-Planner is not able to create plan in case of wide obstacles, it is a local planner which only considers near obstacle avoidance.
 ### Parameters
 - flight_type: 1 to receive goals from rostopic, 2 to use given waypoints in the launch file
+
+## Simulation Packages
+- iris_gazebo
+- realsense_gazebo_plugin

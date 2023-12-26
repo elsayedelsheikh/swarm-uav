@@ -3,12 +3,24 @@
         // for the documentation about the tasks.json format
         "version": "2.0.0",
         "tasks": [
+            // SIM of 1 UAV
+            {
+                "label": "sim: start simulation of 1# UAV",
+                "detail": "Start Simulation in Gazebo and Launch SITL and QGC for 1 UAV.",
+                "dependsOn": [
+                    "gazebo_ros runway_world (1 UAV)",
+                    "SITL UAV#0",
+                    "mavros launch",
+                    "QGC"
+                ],
+                "problemMatcher": []
+            },
             // SIM of 4 UAVs
             {
                 "label": "sim: start simulation of 4# UAV",
                 "detail": "Start Simulation in Gazebo and Launch SITL and QGC for 4 UAV.",
                 "dependsOn": [
-                    // "gazebo_ros runway_world",
+                    "gazebo_ros runway_world (4 UAV)",
                     "SITL UAV#0",
                     "SITL UAV#1",
                     "SITL UAV#2",
@@ -21,7 +33,7 @@
             {
                 "label": "SITL UAV#0",
                 "type": "shell",
-                "command": "ThirdParty/ardupilot/Tools/autotest/sim_vehicle.py -v ArduCopter --console -I0 --out=tcpin:0.0.0.0:8100",
+                "command": "ThirdParty/ardupilot/Tools/autotest/sim_vehicle.py -v ArduCopter -f gazebo-uav0 --console -I0 --out=tcpin:0.0.0.0:8100",
                 "problemMatcher": []
             },
             {
@@ -44,10 +56,10 @@
             },
             // Demo
             {
-                "label": "sim: Iris demo",
-                "detail": "Start Simulation in Gazebo and Launch SITL and QGC for 1 UAV.",
+                "label": "sim: Iris Testing",
+                "detail": "Start Simulation in Gazebo and Launch SITL and QGC.",
                 "dependsOn": [
-                    "gazebo_ros runway_world",
+                    "gazebo_ros iris_testing",
                     "SITL for Gazebo",
                     "mavros launch",
                     "QGC"
@@ -59,7 +71,7 @@
                 "detail": "Start your own gazebo sim then launch SITL, MAVROS and QGC.",
                 "dependsOn": [
                     "SITL for Gazebo",
-                    // "mavros launch",
+                    "mavros launch",
                     "QGC"
                 ],
                 "problemMatcher": []
@@ -181,7 +193,9 @@
                 "command": "roslaunch",
                 "args": [
                     "iris_gazebo",
-                    "sim.launch"
+                    "sim.launch",
+                    // "--wait",
+                    "num_uav:=1"
                 ],
                 "options": {
                     "env": {
@@ -191,7 +205,43 @@
                 "problemMatcher": [
                     "$roslaunch"
                 ],
-                "label": "gazebo_ros runway_world",
+                "label": "gazebo_ros runway_world (1 UAV)",
+            },
+            {
+                "type": "ros",
+                "command": "roslaunch",
+                "args": [
+                    "iris_gazebo",
+                    "sim.launch",
+                    "--wait",
+                    "num_uav:=4"
+                ],
+                "options": {
+                    "env": {
+                        "GAZEBO_MODEL_PATH": "ThirdParty/ardupilot_gazebo/models"
+                    }
+                },
+                "problemMatcher": [
+                    "$roslaunch"
+                ],
+                "label": "gazebo_ros runway_world (4 UAV)",
+            },
+            {
+                "type": "ros",
+                "command": "roslaunch",
+                "args": [
+                    "iris_gazebo",
+                    "iris_testing.launch",
+                ],
+                "options": {
+                    "env": {
+                        "GAZEBO_MODEL_PATH": "ThirdParty/ardupilot_gazebo/models"
+                    }
+                },
+                "problemMatcher": [
+                    "$roslaunch"
+                ],
+                "label": "gazebo_ros iris_testing",
             },
             {
                 "type": "ros",
@@ -219,7 +269,8 @@
                 "command": "roslaunch",
                 "args": [
                     "ego_planner_gz",
-                    "apm.launch"
+                    "apm.launch",
+                    "--wait",
                 ],
                 "problemMatcher": [
                     "$roslaunch"

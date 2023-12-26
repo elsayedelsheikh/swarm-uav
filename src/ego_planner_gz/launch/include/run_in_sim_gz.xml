@@ -40,14 +40,14 @@
         <arg name="depth_topic" value="pcl_render_node/depth"/>
         <!-- topic of point cloud measurement, such as from LIDAR  -->
         <!-- don't set camera pose and depth, if you already set this one! -->
-        <arg name="cloud_topic" value="pcl_render_node/cloud"/>
+        <arg name="cloud_topic" value="realsense_plugin/camera/depth_registered/points"/>
         <!-- intrinsic params of the depth camera -->
-        <arg name="cx" value="321.04638671875"/>
-        <arg name="cy" value="243.44969177246094"/>
-        <arg name="fx" value="387.229248046875"/>
-        <arg name="fy" value="387.229248046875"/>
+        <arg name="cx" value="320.0"/>
+        <arg name="cy" value="240.0"/>
+        <arg name="fx" value="554.3826904296875"/>
+        <arg name="fy" value="554.3826904296875"/>
         <!-- maximum velocity, acceleration and jerk the drone will reach -->
-        <arg name="max_vel" value="1.5" />
+        <arg name="max_vel" value="2.5" />
         <arg name="max_acc" value="6.0" />
         <arg name="max_jer" value="20.0" />
         <!--always set to 1.5 times grater than sensing horizen-->
@@ -82,7 +82,7 @@
         <param name="traj_server/time_forward" value="1.0" type="double"/>
     </node>
     <!-- use simulator -->
-    <include file="$(find ego_planner)/launch/include/simulator.xml">
+    <!-- <include file="$(find ego_planner)/launch/include/simulator.xml">
         <arg name="drone_id" value="$(arg drone_id)"/>
         <arg name="map_size_x_" value="$(arg map_size_x)"/>
         <arg name="map_size_y_" value="$(arg map_size_y)"/>
@@ -91,7 +91,7 @@
         <arg name="init_y_" value="$(arg init_y)"/>
         <arg name="init_z_" value="$(arg init_z)"/>
         <arg name="odometry_topic" value="$(arg odom_topic)" />
-    </include>
+    </include> -->
     <include file="$(find manual_take_over)/launch/take_over_drone.launch">
         <arg name="drone_id" value="$(arg drone_id)"/>
         <arg name="cmd_topic" value="drone_$(arg drone_id)_planning/pos_cmd"/>

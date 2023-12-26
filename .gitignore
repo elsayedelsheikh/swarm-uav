@@ -5,6 +5,8 @@ log/
 logs/
 ThirdParty/
 terrain/
+.catkintools/
+.catkin_workspace
 mav.parm
 eeprom.bin
 mav.tlog

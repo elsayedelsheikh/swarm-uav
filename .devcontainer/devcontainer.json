@@ -1,6 +1,6 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
-	"name": "ROS Noetic",
+	"name": "ROS Noetic: UAV Flocking",
 	"dockerFile": "Dockerfile",
 	"build": {
 		"args": {
@@ -14,19 +14,21 @@
 		"--cap-add=SYS_PTRACE",
 		"--security-opt=seccomp:unconfined",
 		"--security-opt=apparmor:unconfined",
+		// AppImages
+		"--cap-add=SYS_ADMIN",
+		"--device=/dev/fuse",
 		// GUI support
 		// https://github.com/microsoft/wslg/blob/main/samples/container/Containers.md
 		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
 		"--volume=/mnt/wslg:/mnt/wslg",
+		"--runtime=nvidia",
 		// Windows vGPU support
+		// For Windows, uncomment the following lines
 		"--volume=/usr/lib/wsl:/usr/lib/wsl",
 		"--device=/dev/dxg",
 		"--device=/dev/dri/card0",
 		"--device=/dev/dri/renderD128",
-		"--gpus=all",
-		// AppImages
-		"--cap-add=SYS_ADMIN",
-		"--device=/dev/fuse"
+		"--gpus=all"
 	],
 	"containerEnv": {
 		"DISPLAY": ":0", // for windows else "${localEnv:DISPLAY}"

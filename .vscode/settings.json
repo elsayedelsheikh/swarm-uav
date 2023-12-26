@@ -4,9 +4,10 @@
         100
     ],
     "files.associations": {
-        "*.repos": "yaml",
+        "*.xacro": "xml",
         "*.world": "xml",
-        "*.xacro": "xml"
+        "*.repos": "yaml",
+        "chrono": "cpp"
     },
     "python.analysis.extraPaths": [
         "/opt/ros/noetic/lib/python3.10/site-packages/"
