@@ -75,13 +75,13 @@
     </link>
 
     <!-- attach multirotor_base_plugin to the base_link -->
-    <gazebo>
+    <!-- <gazebo>
       <plugin filename="librotors_gazebo_multirotor_base_plugin.so" name="multirotor_base_plugin">
         <robotNamespace>${robot_namespace}</robotNamespace>
         <linkName>${robot_namespace}/base_link</linkName>
         <rotorVelocitySlowdownSim>${rotor_velocity_slowdown_sim}</rotorVelocitySlowdownSim>
       </plugin>
-    </gazebo>
+    </gazebo> -->
   </xacro:macro>
 
   <!-- Rotor joint and link -->
@@ -120,7 +120,7 @@
         </geometry>
       </collision>
     </link>
-    <gazebo>
+    <!-- <gazebo>
       <plugin name="${robot_namespace}_${suffix}_motor_model" filename="librotors_gazebo_motor_model.so">
         <robotNamespace>${robot_namespace}</robotNamespace>
         <jointName>${robot_namespace}/rotor_${motor_number}_joint</jointName>
@@ -138,7 +138,7 @@
         <motorSpeedPubTopic>motor_speed/${motor_number}</motorSpeedPubTopic>
         <rotorVelocitySlowdownSim>${rotor_velocity_slowdown_sim}</rotorVelocitySlowdownSim>
       </plugin>
-    </gazebo>
+    </gazebo> -->
     <!-- <gazebo>
       <plugin name="${robot_namespace}/rotor_${motor_number}_blade_1" filename="libLiftDragPlugin.so">
         <a0>0.3</a0>

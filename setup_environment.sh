@@ -54,6 +54,9 @@ catkin_make
 echo "Setting up the ROS Workspace"
 echo "source $ws_dir/devel/setup.bash" >> ~/.bashrc
 echo "export GAZEBO_MODEL_PATH=$ws_dir/ThirdParty/ardupilot_gazebo/models" >> ~/.bashrc
-echo "source export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:$ws_dir/ORB_SLAM2_NOETIC/Examples/ROS" >> ~/.bashrc
+echo "export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:$ws_dir/ORB_SLAM2_NOETIC/Examples/ROS" >> ~/.bashrc
 echo "Done"
 
+# source /workspaces/swarm-uav/devel/setup.bash
+# export GAZEBO_MODEL_PATH=/workspaces/swarm-uav/ThirdParty/ardupilot_gazebo/models
+# export ROS_PACKAGE_PATH=/workspaces/swarm-uav/src:/opt/ros/noetic/share:/workspaces/swarm-uav/ORB_SLAM2_NOETIC/Examples/ROS

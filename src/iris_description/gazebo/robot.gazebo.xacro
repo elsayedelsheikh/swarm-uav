@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <!-- plugins -->
   <!-- Lift Drag Plugins -->
-  <!-- <gazebo reference="$(arg namespace)/rotor_0">
+  <gazebo>
       <plugin name="rotor_0_blade_1" filename="libLiftDragPlugin.so">
         <a0>0.3</a0>
         <alpha_stall>1.4</alpha_stall>
@@ -135,7 +135,7 @@
         <upward>0 0 1</upward>
         <link_name>$(arg namespace)/rotor_3</link_name>
       </plugin>
-    </gazebo> -->
+    </gazebo>
 
     <!-- ArduPilot Plugin -->
     <xacro:macro name="ardupilot_macro" params="fdm_port">
@@ -150,7 +150,7 @@
           -->
           <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
           <gazeboXYZToNED>0 0 0 3.141593 0 0</gazeboXYZToNED>
-          <imuName>$(arg namespace)::$(arg namespace)/imu_link</imuName>
+          <imuName>uav0::$(arg namespace)/imu_link::rotors_gazebo_imu_plugin</imuName>
           <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
           <control channel="0">
           <!--
@@ -169,7 +169,8 @@
           <i_min>0</i_min>
           <cmd_max>2.5</cmd_max>
           <cmd_min>-2.5</cmd_min>
-          <jointName>$(arg namespace)::$(arg namespace)/rotor_0_joint</jointName>
+          <jointName>uav0::uav0/rotor_0_joint</jointName>
+          <!-- <jointName>$(arg namespace)/rotor_0_joint</jointName> -->
           <multiplier>838</multiplier>
           <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
           </control>
@@ -183,7 +184,8 @@
           <i_min>0</i_min>
           <cmd_max>2.5</cmd_max>
           <cmd_min>-2.5</cmd_min>
-          <jointName>$(arg namespace)::$(arg namespace)/rotor_1_joint</jointName>
+          <jointName>uav0::uav0/rotor_1_joint</jointName>
+          <!-- <jointName>$(arg namespace)/rotor_1_joint</jointName> -->
           <multiplier>838</multiplier>
           <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
           </control>
@@ -197,7 +199,8 @@
           <i_min>0</i_min>
           <cmd_max>2.5</cmd_max>
           <cmd_min>-2.5</cmd_min>
-          <jointName>$(arg namespace)::$(arg namespace)/rotor_2_joint</jointName>
+          <jointName>uav0::uav0/rotor_2_joint</jointName>
+          <!-- <jointName>$(arg namespace)/rotor_2_joint</jointName> -->
           <multiplier>-838</multiplier>
           <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
           </control>
@@ -211,7 +214,8 @@
           <i_min>0</i_min>
           <cmd_max>2.5</cmd_max>
           <cmd_min>-2.5</cmd_min>
-          <jointName>$(arg namespace)::$(arg namespace)/rotor_3_joint</jointName>
+          <jointName>uav0::uav0/rotor_3_joint</jointName>
+          <!-- <jointName>$(arg namespace)/rotor_3_joint</jointName> -->
           <multiplier>-838</multiplier>
           <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
           </control>

@@ -1,0 +1,33 @@
+repositories:
+  EGO-Planner-v2:
+    type: git
+    url: https://github.com/ZJU-FAST-Lab/EGO-Planner-v2.git
+    version: main
+  ORB_SLAM2_NOETIC:
+    type: git
+    url: https://github.com/RAFALAMAO/ORB_SLAM2_NOETIC/tree/main
+    version: main
+  # ORB_SLAM2:
+  #   type: git
+  #   url: https://github.com/raulmur/ORB_SLAM2.git
+  #   version: master
+
+  ## ArduPilot
+  ardupilot:
+    type: git
+    url: https://github.com/ArduPilot/ardupilot
+    version: Copter-4.4.3
+  ## ArduPilot Gazebo Plugin
+  ardupilot_gazebo:
+    type: git
+    url: https://github.com/khancyr/ardupilot_gazebo.git
+    version: master
+
+  ## Drones Description
+  # rotors_simulator:
+  #   type: git
+  #   url: https://github.com/ethz-asl/rotors_simulator.git
+  #   version: master
+
+  ## QGC
+  # https://d176tv9ibo4jno.cloudfront.net/latest/QGroundControl.AppImage

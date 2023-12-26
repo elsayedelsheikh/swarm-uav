@@ -1,0 +1,16 @@
+<launch>
+	<param name="use_sim_time" value="true" />
+  <arg name="camera_name" default="realsense_plugin" />
+  <arg name="rgb_img" value="/$(arg camera_name)/camera/color/image_raw"/>  <!--Raw color image-->
+  <arg name="depReg_imgrect" value="/$(arg camera_name)/camera/depth/image_rect"/>  <!--Rectified depth image-->
+
+	<!-- ORB SLAM Arguments -->
+	<arg name="vocabulary_file" default="/workspaces/swarm-uav/ThirdParty/ORB_SLAM2_NOETIC/Vocabulary/ORBvoc.txt"/>
+	<arg name="settings_file" default="$(find iris_vision)/config/TUM.yaml"/>
+
+	<!-- rosrun ORB_SLAM2 RGBD PATH_TO_VOCABULARY PATH_TO_SETTINGS_FILE -->
+	<node pkg="ORB_SLAM2" type="RGBD" name="RGBD" output="screen" args="$(arg vocabulary_file) $(arg settings_file)">
+    <remap from="/camera/depth_registered/image_raw" to="$(arg depReg_imgrect)" />
+    <remap from="/camera/rgb/image_raw" to="$(arg rgb_img)"/>
+	</node>
+</launch>

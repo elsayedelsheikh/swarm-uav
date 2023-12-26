@@ -9,12 +9,7 @@
   <arg name="depReg_imgrect" value="/$(arg camera_name)/camera/depth/image_rect"/>  <!--Rectified depth image-->
   <arg name="out_cloud" value="/$(arg camera_name)/camera/depth_registered/points"/>
 
-	<!-- ORB SLAM Arguments -->
-	<arg name="vocabulary_file" default="/workspaces/swarm-uav/ThirdParty/ORB_SLAM2_NOETIC/Vocabulary/ORBvoc.txt"/>
-	<arg name="settings_file" default="$(find iris_vision)/config/TUM.yaml"/>
-
 	<!-- Depth Processing -->
-
   <node pkg="nodelet" type="nodelet" name="standalone_nodelet" args="manager" output="screen"/>
 
   <!-- Convert depth from mm (in uint16) to meters -->
@@ -31,9 +26,4 @@
     <remap from="depth_registered/points" to="$(arg out_cloud)"/>
   </node>
 
-	<!-- rosrun ORB_SLAM2 RGBD PATH_TO_VOCABULARY PATH_TO_SETTINGS_FILE -->
-	<!-- <node pkg="ORB_SLAM2" type="RGBD" name="RGBD" output="screen" args="$(arg vocabulary_file) $(arg settings_file)">
-    <remap from="/camera/depth_registered/image_raw" to="$(arg depReg_imgrect)" />
-    <remap from="/camera/rgb/image_raw" to="$(arg rgb_img_rect)"/>
-	</node> -->
 </launch>

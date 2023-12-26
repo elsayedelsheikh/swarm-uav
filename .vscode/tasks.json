@@ -10,8 +10,8 @@
                 "dependsOn": [
                     "gazebo_ros runway_world (1 UAV)",
                     "SITL UAV#0",
-                    "mavros launch",
-                    "QGC"
+                    // "mavros launch",
+                    // "QGC"
                 ],
                 "problemMatcher": []
             },
@@ -61,8 +61,8 @@
                 "dependsOn": [
                     "gazebo_ros iris_testing",
                     "SITL for Gazebo",
-                    "mavros launch",
-                    "QGC"
+                    // "mavros launch",
+                    // "QGC"
                 ],
                 "problemMatcher": []
             },
@@ -194,8 +194,8 @@
                 "args": [
                     "iris_gazebo",
                     "sim.launch",
-                    // "--wait",
-                    "num_uav:=1"
+                    "num_uav:=1",
+                    "--verbose"
                 ],
                 "options": {
                     "env": {
