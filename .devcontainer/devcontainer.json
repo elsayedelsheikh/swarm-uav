@@ -31,7 +31,7 @@
 		"--gpus=all"
 	],
 	"containerEnv": {
-		"DISPLAY": ":0", // for windows else "${localEnv:DISPLAY}"
+		"DISPLAY": ":0", // ":0" for windows else "${localEnv:DISPLAY}"
 		"WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
 		"XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}",
 		"PULSE_SERVER": "${localEnv:PULSE_SERVER}"
