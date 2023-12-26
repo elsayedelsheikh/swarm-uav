@@ -10,6 +10,13 @@ Avoid errors during compilation:
 
 ## Setup
 
+Steps to setup the development environment:
+Run the following vscode tasks
+- Run import thirdparty repos task
+- Run setup task
+Now
+- reload vscode window
+
 #### Ardupilot parameter:
 1. This parameter setup is done using bash script (`setup_ardupilot.sh`)
 - /workspaces/swarm-uav/ThirdParty/ardupilot/Tools/autotest/pysim/vehicleinfo.py 

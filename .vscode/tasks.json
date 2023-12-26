@@ -124,7 +124,7 @@
                 "problemMatcher": "$gcc"
             },
             {
-                "label": "import from workspace file",
+                "label": "import thirdparty repos",
                 "detail": "Use vcs to import modules specified by a workspace/rosinstall file.",
                 "type": "shell",
                 "command": "vcs import < ThirdParty/thirdparty.repos ThirdParty",
@@ -144,6 +144,13 @@
                 "command": "sudo apt-get update && rosdep update && rosdep install --from-paths src --ignore-src -y",
                 "problemMatcher": []
             },
+            {
+                "label": "setup",
+                "detail": "Set up the workspace",
+                "type": "shell",
+                "command": "./setup_environment.sh",
+                "problemMatcher": []
+            },    
             {
                 "label": "add submodules from .repos",
                 "detail": "Create a git submodule for all repositories in your .repos file",
