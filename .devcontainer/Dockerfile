@@ -153,18 +153,18 @@ EXPOSE 5760/tcp
 ## RUN apt-get update && apt install -y software-properties-common
 ## RUN add-apt-repository ppa:oibaf/graphics-drivers -y
 ### For Windows, uncomment the following lines
-RUN apt-get update \
-   && apt-get -y install \
-          vainfo \
-          mesa-va-drivers \
-          mesa-utils \
-   # Clean up
-        && apt-get autoremove -y \
-        && apt-get clean -y \
-        && rm -rf /var/lib/apt/lists/*
-ENV LIBVA_DRIVER_NAME=d3d12
-ENV LD_LIBRARY_PATH=/usr/lib/wsl/lib
-CMD vainfo --display drm --device /dev/dri/card0
+# RUN apt-get update \
+#    && apt-get -y install \
+#           vainfo \
+#           mesa-va-drivers \
+#           mesa-utils \
+#    # Clean up
+#         && apt-get autoremove -y \
+#         && apt-get clean -y \
+#         && rm -rf /var/lib/apt/lists/*
+# ENV LIBVA_DRIVER_NAME=d3d12
+# ENV LD_LIBRARY_PATH=/usr/lib/wsl/lib
+# CMD vainfo --display drm --device /dev/dri/card0
 #################################################################################################
 ENV DEBIAN_FRONTEND=dialog
 
