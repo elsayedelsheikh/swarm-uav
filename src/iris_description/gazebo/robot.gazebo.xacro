@@ -1,141 +1,142 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <!-- plugins -->
+  <!-- Load iris sensor plugins -->
+  <xacro:include filename="$(find iris_description)/gazebo/sensors.gazebo.xacro" />
+
   <!-- Lift Drag Plugins -->
   <gazebo>
-      <plugin name="rotor_0_blade_1" filename="libLiftDragPlugin.so">
-        <a0>0.3</a0>
-        <alpha_stall>1.4</alpha_stall>
-        <cla>4.2500</cla>
-        <cda>0.10</cda>
-        <cma>0.00</cma>
-        <cla_stall>-0.025</cla_stall>
-        <cda_stall>0.0</cda_stall>
-        <cma_stall>0.0</cma_stall>
-        <area>0.002</area>
-        <air_density>1.2041</air_density>
-        <cp>0.084 0 0</cp>
-        <forward>0 1 0</forward>
-        <upward>0 0 1</upward>
-        <link_name>$(arg namespace)/rotor_0</link_name>
-      </plugin>
-      <plugin name="rotor_0_blade_2" filename="libLiftDragPlugin.so">
-        <a0>0.3</a0>
-        <alpha_stall>1.4</alpha_stall>
-        <cla>4.2500</cla>
-        <cda>0.10</cda>
-        <cma>0.00</cma>
-        <cla_stall>-0.025</cla_stall>
-        <cda_stall>0.0</cda_stall>
-        <cma_stall>0.0</cma_stall>
-        <area>0.002</area>
-        <air_density>1.2041</air_density>
-        <cp>-0.084 0 0</cp>
-        <forward>0 -1 0</forward>
-        <upward>0 0 1</upward>
-        <link_name>$(arg namespace)/rotor_0</link_name>
-      </plugin>
+    <plugin name="rotor_0_blade_1" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>0.084 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>$(arg namespace)/rotor_0</link_name>
+    </plugin>
+    <plugin name="rotor_0_blade_2" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.084 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>$(arg namespace)/rotor_0</link_name>
+    </plugin>
+    <plugin name="rotor_1_blade_1" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>0.084 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>$(arg namespace)/rotor_1</link_name>
+    </plugin>
+    <plugin name="rotor_1_blade_2" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.084 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>$(arg namespace)/rotor_1</link_name>
+    </plugin>
+
+    <plugin name="rotor_2_blade_1" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>0.084 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>$(arg namespace)/rotor_2</link_name>
+    </plugin>
+    <plugin name="rotor_2_blade_2" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.084 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>$(arg namespace)/rotor_2</link_name>
+    </plugin>
+
+    <plugin name="rotor_3_blade_1" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>0.084 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>$(arg namespace)/rotor_3</link_name>
+    </plugin>
+    <plugin name="rotor_3_blade_2" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.084 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>$(arg namespace)/rotor_3</link_name>
+    </plugin>
   </gazebo>
-  <gazebo>
-      <plugin name="rotor_1_blade_1" filename="libLiftDragPlugin.so">
-        <a0>0.3</a0>
-        <alpha_stall>1.4</alpha_stall>
-        <cla>4.2500</cla>
-        <cda>0.10</cda>
-        <cma>0.00</cma>
-        <cla_stall>-0.025</cla_stall>
-        <cda_stall>0.0</cda_stall>
-        <cma_stall>0.0</cma_stall>
-        <area>0.002</area>
-        <air_density>1.2041</air_density>
-        <cp>0.084 0 0</cp>
-        <forward>0 1 0</forward>
-        <upward>0 0 1</upward>
-        <link_name>$(arg namespace)/rotor_1</link_name>
-      </plugin>
-      <plugin name="rotor_1_blade_2" filename="libLiftDragPlugin.so">
-        <a0>0.3</a0>
-        <alpha_stall>1.4</alpha_stall>
-        <cla>4.2500</cla>
-        <cda>0.10</cda>
-        <cma>0.00</cma>
-        <cla_stall>-0.025</cla_stall>
-        <cda_stall>0.0</cda_stall>
-        <cma_stall>0.0</cma_stall>
-        <area>0.002</area>
-        <air_density>1.2041</air_density>
-        <cp>-0.084 0 0</cp>
-        <forward>0 -1 0</forward>
-        <upward>0 0 1</upward>
-        <link_name>$(arg namespace)/rotor_1</link_name>
-      </plugin>
-
-      <plugin name="rotor_2_blade_1" filename="libLiftDragPlugin.so">
-        <a0>0.3</a0>
-        <alpha_stall>1.4</alpha_stall>
-        <cla>4.2500</cla>
-        <cda>0.10</cda>
-        <cma>0.00</cma>
-        <cla_stall>-0.025</cla_stall>
-        <cda_stall>0.0</cda_stall>
-        <cma_stall>0.0</cma_stall>
-        <area>0.002</area>
-        <air_density>1.2041</air_density>
-        <cp>0.084 0 0</cp>
-        <forward>0 -1 0</forward>
-        <upward>0 0 1</upward>
-        <link_name>$(arg namespace)/rotor_2</link_name>
-      </plugin>
-      <plugin name="rotor_2_blade_2" filename="libLiftDragPlugin.so">
-        <a0>0.3</a0>
-        <alpha_stall>1.4</alpha_stall>
-        <cla>4.2500</cla>
-        <cda>0.10</cda>
-        <cma>0.00</cma>
-        <cla_stall>-0.025</cla_stall>
-        <cda_stall>0.0</cda_stall>
-        <cma_stall>0.0</cma_stall>
-        <area>0.002</area>
-        <air_density>1.2041</air_density>
-        <cp>-0.084 0 0</cp>
-        <forward>0 1 0</forward>
-        <upward>0 0 1</upward>
-        <link_name>$(arg namespace)/rotor_2</link_name>
-      </plugin>
-
-      <plugin name="rotor_3_blade_1" filename="libLiftDragPlugin.so">
-        <a0>0.3</a0>
-        <alpha_stall>1.4</alpha_stall>
-        <cla>4.2500</cla>
-        <cda>0.10</cda>
-        <cma>0.00</cma>
-        <cla_stall>-0.025</cla_stall>
-        <cda_stall>0.0</cda_stall>
-        <cma_stall>0.0</cma_stall>
-        <area>0.002</area>
-        <air_density>1.2041</air_density>
-        <cp>0.084 0 0</cp>
-        <forward>0 -1 0</forward>
-        <upward>0 0 1</upward>
-        <link_name>$(arg namespace)/rotor_3</link_name>
-      </plugin>
-      <plugin name="rotor_3_blade_2" filename="libLiftDragPlugin.so">
-        <a0>0.3</a0>
-        <alpha_stall>1.4</alpha_stall>
-        <cla>4.2500</cla>
-        <cda>0.10</cda>
-        <cma>0.00</cma>
-        <cla_stall>-0.025</cla_stall>
-        <cda_stall>0.0</cda_stall>
-        <cma_stall>0.0</cma_stall>
-        <area>0.002</area>
-        <air_density>1.2041</air_density>
-        <cp>-0.084 0 0</cp>
-        <forward>0 1 0</forward>
-        <upward>0 0 1</upward>
-        <link_name>$(arg namespace)/rotor_3</link_name>
-      </plugin>
-    </gazebo>
 
     <!-- ArduPilot Plugin -->
     <xacro:macro name="ardupilot_macro" params="fdm_port">
@@ -150,7 +151,7 @@
           -->
           <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
           <gazeboXYZToNED>0 0 0 3.141593 0 0</gazeboXYZToNED>
-          <imuName>uav0::$(arg namespace)/imu_link::rotors_gazebo_imu_plugin</imuName>
+          <imuName>$(arg namespace)/imu_link::imu_sensor</imuName>
           <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
           <control channel="0">
           <!--
@@ -169,8 +170,7 @@
           <i_min>0</i_min>
           <cmd_max>2.5</cmd_max>
           <cmd_min>-2.5</cmd_min>
-          <jointName>uav0::uav0/rotor_0_joint</jointName>
-          <!-- <jointName>$(arg namespace)/rotor_0_joint</jointName> -->
+          <jointName>$(arg namespace)/rotor_0_joint</jointName>
           <multiplier>838</multiplier>
           <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
           </control>
@@ -184,8 +184,7 @@
           <i_min>0</i_min>
           <cmd_max>2.5</cmd_max>
           <cmd_min>-2.5</cmd_min>
-          <jointName>uav0::uav0/rotor_1_joint</jointName>
-          <!-- <jointName>$(arg namespace)/rotor_1_joint</jointName> -->
+          <jointName>$(arg namespace)/rotor_1_joint</jointName>
           <multiplier>838</multiplier>
           <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
           </control>
@@ -199,8 +198,7 @@
           <i_min>0</i_min>
           <cmd_max>2.5</cmd_max>
           <cmd_min>-2.5</cmd_min>
-          <jointName>uav0::uav0/rotor_2_joint</jointName>
-          <!-- <jointName>$(arg namespace)/rotor_2_joint</jointName> -->
+          <jointName>$(arg namespace)/rotor_2_joint</jointName>
           <multiplier>-838</multiplier>
           <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
           </control>
@@ -214,8 +212,7 @@
           <i_min>0</i_min>
           <cmd_max>2.5</cmd_max>
           <cmd_min>-2.5</cmd_min>
-          <jointName>uav0::uav0/rotor_3_joint</jointName>
-          <!-- <jointName>$(arg namespace)/rotor_3_joint</jointName> -->
+          <jointName>$(arg namespace)/rotor_3_joint</jointName>
           <multiplier>-838</multiplier>
           <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
           </control>

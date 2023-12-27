@@ -21,7 +21,7 @@
 		// https://github.com/microsoft/wslg/blob/main/samples/container/Containers.md
 		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
 		"--volume=/mnt/wslg:/mnt/wslg",
-		"--runtime=nvidia", // For Linux Nvidia Accelerated Graphics
+		"--runtime=nvidia" // For Linux Nvidia Accelerated Graphics
 		// Windows vGPU support
 		// For Windows, uncomment the following lines
 		// "--volume=/usr/lib/wsl:/usr/lib/wsl",
@@ -34,8 +34,8 @@
 		"DISPLAY": ":0", // ":0" for windows else "${localEnv:DISPLAY}"
 		"WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
 		"XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}",
-		"PULSE_SERVER": "${localEnv:PULSE_SERVER}"
-		// "LIBGL_ALWAYS_SOFTWARE": "1" // Needed for software rendering of opengl
+		"PULSE_SERVER": "${localEnv:PULSE_SERVER}",
+		"LIBGL_ALWAYS_SOFTWARE": "1" // Needed for software rendering of opengl
 	},
 	// Set *default* container specific settings.json values on container create.
 	"customizations": {

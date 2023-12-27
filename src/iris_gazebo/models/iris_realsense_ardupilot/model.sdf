@@ -5,23 +5,15 @@
       <uri>model://iris_with_standoffs</uri>
     </include>
 
-    <include>
+    <!-- <include>
         <uri>model://realsense_camera</uri>
         <pose>0.1 -0.01 0.17 0 0 0</pose>
     </include>
 
-    <joint name="iris_gimbal_mount" type="fixed">
+    <joint name="iris_realsense_mount" type="fixed">
       <parent>iris::base_link</parent>
       <child>realsense_camera::link</child>
-      <axis>
-        <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-        </limit>
-        <xyz>0 0 1</xyz>
-        <use_parent_model_frame>true</use_parent_model_frame>
-      </axis>
-    </joint>
+    </joint> -->
 
     <!-- plugins -->
     <plugin name="rotor_0_blade_1" filename="libLiftDragPlugin.so">

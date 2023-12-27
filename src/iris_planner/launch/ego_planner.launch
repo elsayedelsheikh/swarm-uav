@@ -1,9 +1,18 @@
 <launch>
+    <!-- topic of your odometry such as VIO or LIO -->
+    <arg name="odom_topic" default="/mavros/global_position/local"/>
+    <!-- PointCloud topic -->
+    <arg name="pcl_topic" default="/uav0/r200/camera/depth_registered/points"/>
+
+    <arg name="pos_cmd"    default="/position_cmd"/>
+    <arg name="trajectory" default="/trajectory"/>
+
+
     <!-- size of map, change the size inflate x, y, z according to your application -->
     <arg name="drone_id"    default="0"/>
     <arg name="map_size_x"  default="200.0"/>
     <arg name="map_size_y"  default="200.0"/>
-    <arg name="map_size_z"  default=" 15.0"/>
+    <arg name="map_size_z"  default="200.0"/>
     <arg name="init_x"      default="0.0"/>
     <arg name="init_y"      default="0.0"/>
     <arg name="init_z"      default="1.0"/>
@@ -24,8 +33,7 @@
     <arg name="target4_x"   default="0.0"/>
     <arg name="target4_y"   default="0.0"/>
     <arg name="target4_z"   default="0.0"/>
-    <!-- topic of your odometry such as VIO or LIO -->
-    <arg name="odom_topic" default="/mavros/global_position/local"/>
+
     <!-- main algorithm params -->
     <include file="$(find iris_planner)/launch/main_algorithm.xml">
         <arg name="drone_id" value="$(arg drone_id)"/>
@@ -33,7 +41,6 @@
         <arg name="map_size_y_" value="$(arg map_size_y)"/>
         <arg name="map_size_z_" value="$(arg map_size_z)"/>
         <arg name="odometry_topic" value="$(arg odom_topic)"/>
-        <remap from="drone_$(arg drone_id)$(arg odom_topic)" to="$(arg odom_topic)"/>
         <!-- camera pose: transform of camera frame in the world frame -->
         <!-- depth topic: depth image, 640x480 by default -->
         <!-- don't set cloud_topic if you already set these ones! -->
@@ -41,8 +48,7 @@
         <arg name="depth_topic" value="pcl_render_node/depth"/>
         <!-- topic of point cloud measurement, such as from LIDAR  -->
         <!-- don't set camera pose and depth, if you already set this one! -->
-        <arg name="cloud_topic" value="/realsense_plugin/camera/depth_registered/points"/>
-        <remap from="drone_$(arg drone_id)$(arg cloud_topic)" to="$(arg cloud_topic)"/>
+        <arg name="cloud_topic" value="$(arg pcl_topic)"/>
         <!-- intrinsic params of the depth camera -->
         <arg name="cx" value="320.0"/>
         <arg name="cy" value="240.0"/>
@@ -79,8 +85,8 @@
     </include>
     <!-- trajectory server -->
     <node pkg="ego_planner" name="drone_$(arg drone_id)_traj_server" type="traj_server" output="screen">
-        <remap from="position_cmd" to="drone_$(arg drone_id)_planning/pos_cmd"/>
-        <remap from="~planning/trajectory" to="drone_$(arg drone_id)_planning/trajectory"/>
+        <remap from="position_cmd" to="$(arg pos_cmd)"/>
+        <remap from="~planning/trajectory" to="$(arg trajectory)"/>
         <param name="traj_server/time_forward" value="1.0" type="double"/>
     </node>
 </launch>

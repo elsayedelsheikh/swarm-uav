@@ -1,15 +1,12 @@
 <?xml version="1.0" ?>
 <?xml-model href="http://sdformat.org/schemas/root.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <sdf version="1.5">
-  <world name="default">
-    <!-- <plugin name="mrs_gazebo_link_attacher_plugin" filename="libMRSGazeboLinkAttacherPlugin.so"/> -->
-    <!-- <plugin name="mrs_gazebo_static_transform_republisher_plugin" filename="libMrsGazeboCommonResources_StaticTransformRepublisher.so"/> -->
-    
-    <model name="iris_demo">
+  <world name="default">    
+    <!-- <model name="iris_demo">
       <include>
         <uri>model://iris_realsense_ardupilot</uri>
       </include>
-    </model>
+    </model> -->
 
     <!-- coordinate system {-->
     <!-- <spherical_coordinates>
@@ -35,8 +32,7 @@
           <contact_surface_layer>0.0</contact_surface_layer>
         </constraints>
       </ode>
-      <real_time_update_rate>-1</real_time_update_rate>
-      <!--<max_step_size>0.0020</max_step_size>-->
+      <real_time_update_rate>1000</real_time_update_rate>
     </physics>
 
     <scene>
@@ -29093,7 +29089,7 @@
           </geometry>
           <material>
             <script>
-              <uri>file://media/materials/scripts/Gazebo.material</uri>
+              <!-- <uri>file://media/materials/scripts/Gazebo.material</uri> -->
               <name>Gazebo/Grass</name>
             </script>
           </material>
@@ -29102,7 +29098,8 @@
     </model>
     <gui>
       <camera name="camera">
-        <pose>-60 -100 30 0 0.4 0.89</pose>
+        <pose>-5 -3 2.3 0 0.14 0.61</pose>
+        <!-- <pose>-60 -100 30 0 0.4 0.89</pose> -->
       </camera>
     </gui>
 

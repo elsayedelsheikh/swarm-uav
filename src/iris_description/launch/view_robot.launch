@@ -2,7 +2,7 @@
 <launch>
   <arg name="rvizconfig" default="$(find iris_description)/rviz/iris.rviz"/>
   <param name="robot_description" command="$(find xacro)/xacro 
-		$(find iris_description)/urdf/iris.xacro 
+		$(find iris_description)/urdf/robot.urdf.xacro 
 		namespace:=iris" />
 
   <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />

@@ -1,5 +1,5 @@
 <launch>
-  <arg name="world_name" default="runway"/>
+  <arg name="world_name" default="forest"/>
   <arg name="enable_logging" default="false" />
   <arg name="num_uavs" default="1"/>
 

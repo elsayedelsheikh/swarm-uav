@@ -1,10 +1,16 @@
 <?xml version="1.0"?>
 <robot name="iris" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find iris_description)/urdf/component_snippets.xacro" />
+  <!-- Attach Realsense camera -->
+  <xacro:include filename="$(find iris_description)/gazebo/realsense-RS200.macro.xacro"/>
+  <xacro:realsense-rs200 prefix="$(arg namespace)/" parent="$(arg namespace)/base_link">
+      <origin xyz="0.1 0 0.0" rpy="0 0 0" />   
+  </xacro:realsense-rs200>
+
+  <xacro:include filename="$(find iris_description)/gazebo/component_snippets.xacro" />
 
   <!-- Sensors -->
   <!-- Instantiate the mav with a generic odometry sensor. -->
-  <xacro:odometry_plugin_macro
+  <!-- <xacro:odometry_plugin_macro
     namespace="${namespace}"
     odometry_sensor_suffix="1"
     parent_link="${namespace}/base_link"
@@ -30,19 +36,19 @@
     enable_odometry_map="false"
     odometry_map=""
     image_scale="">
-    <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" /> <!-- [kg m^2] [kg m^2] [kg m^2] [kg m^2] [kg m^2] [kg m^2] -->
+    <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
-  </xacro:odometry_plugin_macro>
+  </xacro:odometry_plugin_macro> -->
   
   <!-- vi sensor -->
-  <xacro:vi_sensor_macro
+  <!-- <xacro:vi_sensor_macro
     namespace="${namespace}/vi_sensor"
     parent_link="${namespace}/base_link"
     enable_cameras="true"
     enable_depth="true"
     enable_ground_truth="true">
     <origin xyz="0.1 0.0 -0.03" rpy="0.0 0.1 0.0" />
-  </xacro:vi_sensor_macro>
+  </xacro:vi_sensor_macro> -->
 
 
   <!-- Instantiate a controller. -->
@@ -56,18 +62,18 @@
   <!-- Mount an ADIS16448 IMU. -->
   <xacro:default_imu namespace="${namespace}" parent_link="${namespace}/base_link" />
 
-  <xacro:if value="$(arg enable_ground_truth)">
+  <!-- <xacro:if value="$(arg enable_ground_truth)">
     <xacro:ground_truth_imu_and_odometry namespace="${namespace}" parent_link="${namespace}/base_link" />
-  </xacro:if>
+  </xacro:if> -->
 
   <!-- Instantiate a logger -->
-  <xacro:if value="$(arg enable_logging)">
+  <!-- <xacro:if value="$(arg enable_logging)">
     <xacro:bag_plugin_macro
       namespace="${namespace}"
       bag_file="$(arg log_file)"
       rotor_velocity_slowdown_sim="${rotor_velocity_slowdown_sim}"
       wait_to_record_bag="$(arg wait_to_record_bag)" />
-  </xacro:if>
+  </xacro:if> -->
 
 </robot>
 

@@ -2,7 +2,9 @@
 	<param name="use_sim_time" value="true" />
 
 	<!-- See name assigned in realsense-RS200.macro.xacro -->
-  <arg name="camera_name" default="realsense_plugin" />
+  
+  <arg name="ns" default="/uav0" />
+  <arg name="camera_name" default="$(arg ns)/r200" />
   <arg name="rgb_camera_info" value="/$(arg camera_name)/camera/color/camera_info"/> 
   <arg name="rgb_img_rect" value="/$(arg camera_name)/camera/color/image_raw"/>  <!--Raw color image-->
   <arg name="depReg_imgraw" value="/$(arg camera_name)/camera/depth/image_raw"/>  <!--Raw depth image-->

@@ -9,7 +9,6 @@ Avoid errors during compilation:
 
 
 ## Setup
-
 Steps to setup the development environment:
 Run the following vscode tasks
 - Run import thirdparty repos task
