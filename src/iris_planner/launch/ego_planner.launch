@@ -1,12 +1,12 @@
 <launch>
     <!-- topic of your odometry such as VIO or LIO -->
-    <arg name="odom_topic" default="/mavros/global_position/local"/>
+    <arg name="odom_topic" default="/uav0/mavros/global_position/local"/>
     <!-- PointCloud topic -->
     <arg name="pcl_topic" default="/uav0/r200/camera/depth_registered/points"/>
 
-    <arg name="pos_cmd"    default="/position_cmd"/>
+    <!-- <arg name="pos_cmd"    default="/uav0/mavros/setpoint_position/local"/> -->
+    <arg name="pos_cmd"    default="/pos_cmd"/>
     <arg name="trajectory" default="/trajectory"/>
-
 
     <!-- size of map, change the size inflate x, y, z according to your application -->
     <arg name="drone_id"    default="0"/>
@@ -85,9 +85,11 @@
     </include>
     <!-- trajectory server -->
     <node pkg="ego_planner" name="drone_$(arg drone_id)_traj_server" type="traj_server" output="screen">
+        <!-- Input -->
+        <!-- <remap from="~planning/trajectory" to="$(arg trajectory)"/> -->
+        
+        <!-- Output -->
         <remap from="position_cmd" to="$(arg pos_cmd)"/>
-        <remap from="~planning/trajectory" to="$(arg trajectory)"/>
         <param name="traj_server/time_forward" value="1.0" type="double"/>
     </node>
 </launch>
-    

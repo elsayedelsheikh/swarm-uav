@@ -5,10 +5,10 @@
 	<arg name="tgt_component" default="1" />
 	<arg name="log_output" default="screen" />
 	<arg name="respawn_mavros" default="true"/>
-	<arg name="mavros_ns" default="/"/>
-	<arg name="config_yaml" default="$(find mavros)/launch/apm_config.yaml" />
+	<arg name="mavros_ns" default="/uav0/"/>
+	<arg name="config_yaml" default="$(find iris_mavros)/config/apm_config.yaml" />
 
-	<include file="$(find ego_planner_gz)/launch/mavros_node.launch">
+	<include file="$(find iris_mavros)/launch/mavros_node.launch">
 		<arg name="pluginlists_yaml" value="$(find mavros)/launch/apm_pluginlists.yaml" />
 		<arg name="config_yaml" value="$(arg config_yaml)" />
 		<arg name="mavros_ns" value="$(arg mavros_ns)"/>

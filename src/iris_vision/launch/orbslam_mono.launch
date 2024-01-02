@@ -1,0 +1,16 @@
+<launch>
+<param name="use_sim_time" value="true" />
+  <arg name="ns" default="/uav0" />
+  <arg name="camera_name" default="$(arg ns)/r200" />
+  <arg name="rgb_img" value="/$(arg camera_name)/camera/color/image_raw"/>  <!--Raw color image-->
+  <arg name="depReg_imgrect" value="/$(arg camera_name)/camera/depth/image_rect"/>  <!--Rectified depth image-->
+
+	<!-- ORB SLAM Arguments -->
+	<arg name="vocabulary_file" default="/workspaces/swarm-uav/ThirdParty/ORB_SLAM2_NOETIC/Vocabulary/ORBvoc.txt"/>
+	<arg name="settings_file" default="$(find iris_vision)/config/TUM.yaml"/>
+
+	<!-- rosrun ORB_SLAM2 Mono PATH_TO_VOCABULARY PATH_TO_SETTINGS_FILE -->
+	<node pkg="ORB_SLAM2" type="Mono" name="Mono" output="screen" args="$(arg vocabulary_file) $(arg settings_file)">
+    <remap from="/camera/image_raw" to="$(arg rgb_img)"/>
+	</node>
+</launch>

@@ -7,7 +7,7 @@
 			"WORKSPACE": "${containerWorkspaceFolder}"
 		}
 	},
-	"postCreateCommand": "rosdep update",
+	"postCreateCommand": "./setup_environment.sh",
 	"remoteUser": "ros",
 	"runArgs": [
 		// "--network=host",
@@ -21,7 +21,7 @@
 		// https://github.com/microsoft/wslg/blob/main/samples/container/Containers.md
 		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
 		"--volume=/mnt/wslg:/mnt/wslg",
-		"--runtime=nvidia" // For Linux Nvidia Accelerated Graphics
+		"--runtime=nvidia", // For Linux Nvidia Accelerated Graphics
 		// Windows vGPU support
 		// For Windows, uncomment the following lines
 		// "--volume=/usr/lib/wsl:/usr/lib/wsl",
@@ -29,9 +29,12 @@
 		// "--device=/dev/dri/card0",
 		// "--device=/dev/dri/renderD128",
 		// "--gpus=all"
+
+		// Joystick Controller
+		// "--device=/dev/input/js0"
 	],
 	"containerEnv": {
-		"DISPLAY": ":0", // ":0" for windows else "${localEnv:DISPLAY}"
+		"DISPLAY": "${localEnv:DISPLAY}", // ":0" for windows else "${localEnv:DISPLAY}"
 		"WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
 		"XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}",
 		"PULSE_SERVER": "${localEnv:PULSE_SERVER}",

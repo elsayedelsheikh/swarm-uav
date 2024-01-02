@@ -2,21 +2,12 @@
 <?xml-model href="http://sdformat.org/schemas/root.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <sdf version="1.5">
   <world name="default">    
-    <!-- <model name="iris_demo">
+    <model name="iris_demo">
       <include>
         <uri>model://iris_realsense_ardupilot</uri>
       </include>
-    </model> -->
+    </model>
 
-    <!-- coordinate system {-->
-    <!-- <spherical_coordinates>
-      <surface_model>EARTH_WGS84</surface_model>
-      <latitude_deg>47.397743</latitude_deg>
-      <longitude_deg>8.545594</longitude_deg>
-      <elevation>0.0</elevation>
-      <heading_deg>0</heading_deg>
-    </spherical_coordinates> -->
-    <!--}-->
     <gravity>0 0 -9.8</gravity>
     <physics type="ode">
       <ode>
@@ -29098,12 +29089,8 @@
     </model>
     <gui>
       <camera name="camera">
-        <!-- World Origin -->
-        <!-- <pose>-5 -3 2.3 0 0.14 0.61</pose> -->
-
-        <!-- Begining of the forest -->
-        <pose>-76.5 -14.7 8.0 0 0.26 0.65</pose>
-
+        <pose>-5 -3 2.3 0 0.14 0.61</pose>
+        <!-- <pose>-60 -100 30 0 0.4 0.89</pose> -->
       </camera>
     </gui>
 

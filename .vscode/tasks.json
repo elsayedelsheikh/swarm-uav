@@ -10,7 +10,7 @@
                     "gazebo_ros (1 UAV)",
                     "camera: depth_image_proc",
                     "SITL UAV#0",
-                    "mavros launch",
+                    "mavros launch"
                 ],
                 "problemMatcher": []
             },
@@ -22,9 +22,7 @@
                     "SITL UAV#0",
                     "SITL UAV#1",
                     "SITL UAV#2",
-                    "SITL UAV#3",
-                    // "mavros launch",
-                    // "QGC"
+                    "SITL UAV#3"
                 ],
                 "problemMatcher": []
             },
@@ -58,7 +56,7 @@
                 "dependsOn": [
                     "gazebo_ros iris_testing",
                     "SITL for Gazebo",
-                    "mavros launch",
+                    "mavros launch"
                 ],
                 "problemMatcher": []
             },
@@ -169,7 +167,7 @@
                 "problemMatcher": [
                     "$roslaunch"
                 ],
-                "label": "rviz: visualize ego_planner",
+                "label": "rviz: visualize ego_planner"
             },
             {
                 "type": "ros",
@@ -178,15 +176,10 @@
                     "iris_planner",
                     "rviz.launch"
                 ],
-                // "options": {
-                //     "env": {
-                //         "LIBGL_ALWAYS_SOFTWARE": "1"
-                //     }
-                // },
                 "problemMatcher": [
                     "$roslaunch"
                 ],
-                "label": "iris: start rviz",
+                "label": "iris: start rviz"
             },
             {
                 "type": "ros",
@@ -218,8 +211,7 @@
                 "problemMatcher": [
                     "$roslaunch"
                 ],
-                "label": "camera: depth_image_proc",
-                "detail": "Start depth_image_proc"
+                "label": "camera: depth_image_proc"
             },
             {
                 "type": "ros",
@@ -231,8 +223,7 @@
                 "problemMatcher": [
                     "$roslaunch"
                 ],
-                "label": "iris: ego_planner",
-                "detail": "Start ego_planner with iris"
+                "label": "iris: ego_planner"
             },
             {
                 "type": "ros",
@@ -240,7 +231,7 @@
                 "args": [
                     "iris_gazebo",
                     "sim.launch",
-                    "num_uavs:=1",
+                    "num_uavs:=1"
                 ],
                 "options": {
                     "env": {
@@ -291,7 +282,7 @@
                 "type": "ros",
                 "command": "roslaunch",
                 "args": [
-                    "ego_planner_gz",
+                    "iris_mavros",
                     "apm.launch",
                     "--wait"
                 ],
@@ -317,6 +308,18 @@
                 ],
                 "label": "rviz: visualize ego_planner",
                 "detail": "Start rviz to visualize ego_planner"
+            },
+            {
+                "type": "ros",
+                "command": "rosrun",
+                "args": [
+                    "rqt_tf_tree",
+                    "rqt_tf_tree"
+                ],
+                "problemMatcher": [
+                    "$roslaunch"
+                ],
+                "label": "tf: view tf tree",
             }
         ],
         "inputs": [

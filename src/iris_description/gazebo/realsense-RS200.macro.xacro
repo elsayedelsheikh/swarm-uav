@@ -184,7 +184,7 @@
             </image>
             <clip>
                     <near>0.1</near>
-                    <far>100</far>
+                    <far>1000</far>
             </clip>
             <noise>
                     <type>gaussian</type>

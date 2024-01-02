@@ -14,6 +14,8 @@
   <!-- Spawn UAVs -->
   <include file="$(find iris_gazebo)/launch/spawn_uav_call.launch">
     <!-- Namespace -->
+    <arg name="x" value="-60.0"/>
+    <arg name="y" value="0.0"/>
     <arg name="ns" value="0"/> 
     <arg name="ardupilot_port" value="9002"/>
     <arg name="enable_logging" value="$(arg enable_logging)" />
