@@ -3,7 +3,7 @@ devel/
 install/
 log/
 logs/
-ThirdParty/
+ThirdParty/*
 !ThirdParty/thirdparty.repos
 terrain/
 .catkintools/
