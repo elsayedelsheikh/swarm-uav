@@ -7,23 +7,23 @@
 			"WORKSPACE": "${containerWorkspaceFolder}"
 		}
 	},
-	"postCreateCommand": "./setup_environment.sh",
+	"postCreateCommand": "rosdep update",
 	"remoteUser": "ros",
 	"runArgs": [
 		"--network=host",
-		"--cap-add=SYS_PTRACE",
-		"--security-opt=seccomp:unconfined",
-		"--security-opt=apparmor:unconfined",
+		// "--cap-add=SYS_PTRACE",
+		// "--security-opt=seccomp:unconfined",
+		// "--security-opt=apparmor:unconfined",
 		// GUI support
-		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
-		"--volume=/mnt/wslg:/mnt/wslg",
-		"--runtime=nvidia"
+		// "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
+		// "--volume=/mnt/wslg:/mnt/wslg",
+		// "--runtime=nvidia"
 	],
 	"containerEnv": {
-		"DISPLAY": "${localEnv:DISPLAY}", // ":0" for windows else "${localEnv:DISPLAY}"
-		"WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
+		// "DISPLAY": "${localEnv:DISPLAY}", // ":0" for windows else "${localEnv:DISPLAY}"
+		// "WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
 		"XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}",
-		"PULSE_SERVER": "${localEnv:PULSE_SERVER}",
+		// "PULSE_SERVER": "${localEnv:PULSE_SERVER}",
 		"LIBGL_ALWAYS_SOFTWARE": "1" // Needed for software rendering of opengl
 	},
 	// Set *default* container specific settings.json values on container create.
