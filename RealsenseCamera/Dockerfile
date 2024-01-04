@@ -4,7 +4,8 @@ ARG BASE_IMAGE=althack/ros:noetic-base
 #################################
 FROM $BASE_IMAGE as librealsense-builder
 
-ARG LIBRS_VERSION # Version v2.50.0 for ROS1
+# Version v2.50.0 for ROS1
+ARG LIBRS_VERSION 
 # Make sure that we have a version number of librealsense as argument
 RUN test -n "$LIBRS_VERSION"
 

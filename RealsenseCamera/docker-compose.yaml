@@ -1,7 +1,13 @@
 version: "3"
 services:
   base:
-    image: librealsense
+    image: librealsense:v2.50.0
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - LIBRS_VERSION=2.50.0
+      target: librealsense
     volumes:
       - /dev:/dev
     device_cgroup_rules:

@@ -1,9 +1,9 @@
 repositories:
   ## Camera Intel Realsense
-  librealsense:
-    type: git
-    url: https://github.com/IntelRealSense/librealsense.git
-    version: v2.50.0
+  # librealsense:
+  #   type: git
+  #   url: https://github.com/IntelRealSense/librealsense.git
+  #   version: v2.50.0
     
   ## ORB_SLAM2
   ORB_SLAM2_NOETIC:
