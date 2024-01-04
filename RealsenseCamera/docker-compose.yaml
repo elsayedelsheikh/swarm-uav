@@ -5,9 +5,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-      args:
-        - LIBRS_VERSION=2.50.0
-      target: realsense-ros
+      target: realsenseros
     volumes:
       - /dev:/dev
     device_cgroup_rules:
