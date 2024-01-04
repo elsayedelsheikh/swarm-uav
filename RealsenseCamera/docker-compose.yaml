@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
       args:
         - LIBRS_VERSION=2.50.0
-      target: librealsense
+      target: realsense-ros
     volumes:
       - /dev:/dev
     device_cgroup_rules:
