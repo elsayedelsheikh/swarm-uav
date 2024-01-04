@@ -1,7 +1,7 @@
 version: "3"
 services:
   base:
-    image: librealsense:v2.50.0
+    image: librealsense:ros-noetic
     build: 
       context: .
       dockerfile: Dockerfile

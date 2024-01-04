@@ -33,7 +33,7 @@ RUN apt-get update && apt-get install -y \
   && curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add - \
   && apt-get update && apt-get install -y \
     ros-noetic-ros-base \
-    ros-noeitc-realsense2-camera \
+    ros-noetic-realsense2-camera \
     ros-noetic-realsense2-description \
   && rm -rf /var/lib/apt/lists/*
 
@@ -54,4 +54,4 @@ ENV CMAKE_PREFIX_PATH=/opt/ros/noetic
 ENV DEBIAN_FRONTEND=
 
 # Shows a list of connected Realsense devices
-CMD [ "rs-enumerate-devices", "--compact" ]
+# CMD [ "rs-enumerate-devices", "--compact" ]
