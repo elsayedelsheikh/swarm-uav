@@ -2,9 +2,6 @@ version: "3"
 services:
   base:
     image: librealsense
-    build:
-      context: .
-      dockerfile: Dockerfile
     volumes:
       - /dev:/dev
     device_cgroup_rules:
