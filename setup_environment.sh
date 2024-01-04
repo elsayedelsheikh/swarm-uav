@@ -30,19 +30,19 @@ while [ $retry_count -lt $max_retries ]; do
 done
 
 # Install Arduopilot Gazebo Plugin
-echo_green "Building ArduPilot Gazebo Plugin"
-cd $ws_dir/ThirdParty/ardupilot_gazebo
-if [[ -d "build" ]]; then
-    echo_green "Build directory exists. Proceeding with the build process."
-else
-    echo_green "Build directory does not exist. Creating the directory."
-    mkdir "build"
-fi
-cd build
-cmake ..
-make 
-sudo make install
-echo_green "ArduPilot Gazebo Plugin Installed"
+# echo_green "Building ArduPilot Gazebo Plugin"
+# cd $ws_dir/ThirdParty/ardupilot_gazebo
+# if [[ -d "build" ]]; then
+#     echo_green "Build directory exists. Proceeding with the build process."
+# else
+#     echo_green "Build directory does not exist. Creating the directory."
+#     mkdir "build"
+# fi
+# cd build
+# cmake ..
+# make 
+# sudo make install
+# echo_green "ArduPilot Gazebo Plugin Installed"
 
 # Build ORB_SLAM2
 echo_green "Building ORB_SLAM2"
