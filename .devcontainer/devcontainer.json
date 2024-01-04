@@ -20,11 +20,6 @@
 		// "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
 		// "--volume=/mnt/wslg:/mnt/wslg",
 		// "--runtime=nvidia",
-
-		// Intel Realsense camera device
-		// -v /dev:/dev \
-		// --device-cgroup-rule "c 81:* rmw" \
-		// --device-cgroup-rule "c 189:* rmw" \	    
 	],
 	"containerEnv": {
 		// "DISPLAY": "${localEnv:DISPLAY}", // ":0" for windows else "${localEnv:DISPLAY}"
