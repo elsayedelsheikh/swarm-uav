@@ -86,4 +86,4 @@ echo "Done"
 
 # source /workspaces/swarm-uav/devel/setup.bash
 # export GAZEBO_MODEL_PATH=/workspaces/swarm-uav/ThirdParty/ardupilot_gazebo/models
-# export ROS_PACKAGE_PATH=/workspaces/swarm-uav/src:/opt/ros/noetic/share:/workspaces/swarm-uav/ORB_SLAM2_NOETIC/Examples/ROS
+# export ROS_PACKAGE_PATH=/workspaces/swarm-uav/src:/opt/ros/noetic/share:/workspaces/swarm-uav/ThirdParty/ORB_SLAM2_NOETIC/Examples/ROS

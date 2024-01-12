@@ -11,7 +11,7 @@ services:
     device_cgroup_rules:
       - "c 81:* rmw"
       - "c 189:* rmw"
-    command: roslaunch realsense2_camera rs_camera.launch
+    command: roslaunch realsense2_camera rs_aligned_depth.launch
     # Networking
     network_mode: "host"
     ipc: host
