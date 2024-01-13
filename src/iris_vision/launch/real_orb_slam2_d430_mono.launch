@@ -2,12 +2,13 @@
   <node name="orb_slam2_mono" pkg="orb_slam2_ros"
       type="orb_slam2_ros_mono" output="screen">
 
-       <remap from="/camera/image_raw" to="/camera/depth/image_rect_raw" />
+       <remap from="/camera/image_raw" to="/camera/infra1/image_rect_raw" />
+       <remap from="/camera/camera_info" to="/camera/infra1/camera_info" />
 
        <param name="publish_pointcloud" type="bool" value="true" />
        <param name="publish_pose" type="bool" value="true" />
        <param name="localize_only" type="bool" value="false" />
-       <param name="reset_map" type="bool" value="false" />
+       <param name="reset_map" type="bool" value="true" />
 
        <!-- static parameters -->
        <param name="load_map" type="bool" value="false" />
@@ -27,13 +28,13 @@
 
        <!-- Camera parameters -->
        <!-- Camera frames per second -->
-       <param name="camera_fps" type="int" value="15" />
+       <param name="camera_fps" type="int" value="30" />
        <!-- Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale) -->
-       <param name="camera_rgb_encoding" type="bool" value="true" />
+       <param name="camera_rgb_encoding" type="bool" value="false" />
 
         <!-- Camera calibration parameters -->
         <!--If the node should wait for a camera_info topic to take the camera calibration data-->
-       <param name="load_calibration_from_cam" type="bool" value="false" />
+       <param name="load_calibration_from_cam" type="bool" value="true" />
        <!-- Camera calibration and distortion parameters (OpenCV) -->
       <param name="camera_fx" type="double" value="632.7927856445312" />
       <param name="camera_fy" type="double" value="626.8605346679688" />
