@@ -295,6 +295,23 @@
                 "type": "ros",
                 "command": "roslaunch",
                 "args": [
+                    "iris_vision",
+                    "real_orbslam_stereo.launch"
+                ],
+                "options": {
+                    "env": {
+                        "ROS_PACKAGE_PATH": "/workspaces/swarm-uav/src:/opt/ros/noetic/share:/workspaces/swarm-uav/ThirdParty/ORB_SLAM2_NOETIC/Examples/ROS"
+                    }
+                },
+                "problemMatcher": [
+                    "$roslaunch"
+                ],
+                "label": "slam: Start ORBSLAM2",
+            },
+            {
+                "type": "ros",
+                "command": "roslaunch",
+                "args": [
                     "ego_planner",
                     "rviz.launch"
                 ],

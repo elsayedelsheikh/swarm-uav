@@ -1,4 +1,18 @@
 # Swarm Robotics
+## Fly
+### Start SLAM
+```bash
+cd RealsenseCamera
+docker compose up
+```
+In a vscode Dev Container
+Either from terminal in vscode
+```bash
+roslaunch iris_vision real_orbslam_stereo.launch
+```
+or/ from tasks
+Task: Run -> slam
+
 ## Build
 ### ORB_SLAM2
 Notes on how to build ORB_SLAM2 on Ubuntu 20.04
