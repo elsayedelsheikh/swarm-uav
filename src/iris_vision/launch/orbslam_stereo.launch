@@ -1,0 +1,17 @@
+<launch>
+	<param name="use_sim_time" value="true" />
+  <arg name="ns" default="/uav0" />
+  <arg name="camera_name" default="$(arg ns)/r200" />
+  <arg name="left_cam" value="/$(arg camera_name)/camera/ir/image_raw"/>  
+  <arg name="right_cam" value="/$(arg camera_name)/camera/ir2/image_raw"/>  
+
+	<!-- ORB SLAM Arguments -->
+	<arg name="vocabulary_file" default="/workspaces/swarm-uav/ThirdParty/ORB_SLAM2_NOETIC/Vocabulary/ORBvoc.txt"/>
+	<arg name="settings_file" default="$(find iris_vision)/config/EuRoC.yaml"/>
+
+	<!-- rosrun ORB_SLAM2 Stereo Vocabulary/ORBvoc.txt Examples/Stereo/EuRoC.yaml <Recitfy> -->
+	<node pkg="ORB_SLAM2" type="Stereo" name="Stereo" output="screen" args="$(arg vocabulary_file) $(arg settings_file) false">
+		<remap from="/camera/left/image_raw" to="$(arg left_cam)"/>
+		<remap from="/camera/right/image_raw" to="$(arg right_cam)"/>
+	</node>
+</launch>

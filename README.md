@@ -8,7 +8,7 @@ Avoid errors during compilation:
 - Use Pangolin stable v5.0 instead of master branch (user for development)
 
 
-## Setup
+## 1st Time Setup
 Steps to setup the development environment:
 Run the following vscode tasks
 - Run import thirdparty repos task

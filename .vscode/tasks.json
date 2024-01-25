@@ -8,7 +8,7 @@
                 "detail": "Start Simulation in Gazebo, Depth Processing and Launch SITL and MAVROS for 1 UAV.",
                 "dependsOn": [
                     "gazebo_ros (1 UAV)",
-                    "camera: depth_image_proc",
+                    // "camera: depth_image_proc",
                     "SITL UAV#0",
                     "mavros launch"
                 ],

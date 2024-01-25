@@ -138,11 +138,11 @@ void RealSensePlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   this->depthPub = this->transportNode->Advertise<msgs::ImageStamped>(
           rsTopicRoot + DEPTH_CAMERA_TOPIC, 1, DEPTH_PUB_FREQ_HZ);
   this->ired1Pub = this->transportNode->Advertise<msgs::ImageStamped>(
-          rsTopicRoot + IRED1_CAMERA_TOPIC, 1, DEPTH_PUB_FREQ_HZ);
+          rsTopicRoot + IRED1_CAMERA_TOPIC, 1, IRED1_PUB_FREQ_HZ);
   this->ired2Pub = this->transportNode->Advertise<msgs::ImageStamped>(
-          rsTopicRoot + IRED2_CAMERA_TOPIC, 1, DEPTH_PUB_FREQ_HZ);
+          rsTopicRoot + IRED2_CAMERA_TOPIC, 1, IRED2_PUB_FREQ_HZ);
   this->colorPub = this->transportNode->Advertise<msgs::ImageStamped>(
-          rsTopicRoot + COLOR_CAMERA_TOPIC, 1, DEPTH_PUB_FREQ_HZ);
+          rsTopicRoot + COLOR_CAMERA_TOPIC, 1, COLOR_PUB_FREQ_HZ);
 
   // Listen to depth camera new frame event
   this->newDepthFrameConn = this->depthCam->ConnectNewDepthFrame(
